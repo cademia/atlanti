@@ -1,46 +1,48 @@
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;600;700&display=swap');
 
-/* Base Layout */
+/* === Layout di base della pagina === */
 body {
     font-family: 'Alegreya Sans', sans-serif;
 }
 
+/* Contenitore della mappa: lascia spazio alla sidebar a destra */
 .map-container {
-    margin-right: 320px; /* Space for the sidebar */
+    margin-right: 320px; /* Spazio per la sidebar */
     margin-left: 0;
     height: 100vh;
     position: relative;
 }
 
-/* Sidebar */
+/* === Sidebar laterale a destra === */
 #sidebar {
     position: fixed;
     top: 0;
-    right: 0; /* Sidebar on the right */
+    right: 0; /* Sidebar a destra */
     left: auto;
     width: 320px;
     height: 100vh;
-    background: linear-gradient(to bottom, #ffffff, #f9f9f9);
-    padding: 0; /* Remove padding to make search container full-width */
+    background: linear-gradient(to bottom, #ffffff, #f9f9f9); /* Sfondo sfumato */
+    padding: 0; /* Nessun padding per la ricerca full-width */
     overflow-y: auto;
-    border-left: 2px solid #ddd; /* Border on the left */
+    border-left: 2px solid #ddd; /* Bordo sinistro */
     border-right: none;
-    box-shadow: -4px 0 15px rgba(0,0,0,0.1);
+    box-shadow: -4px 0 15px rgba(0,0,0,0.1); /* Ombra laterale */
     box-sizing: border-box;
     z-index: 1000;
 }
 
-/* Search Box Area */
+/* Contenitore della barra di ricerca (sticky in alto) */
 .search-container {
     padding: 15px;
-    background: #ffffff; /* Change background to white for clean look */
+    background: #ffffff; /* Sfondo bianco */
     border-bottom: 2px solid #ddd;
-    position: sticky; /* Make it sticky */
-    top: 0; /* Stick to the top of the sidebar */
-    z-index: 10; /* Ensure it stays above the scrolling content */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Add subtle shadow */
+    position: sticky; /* Rimane visibile in alto */
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05); /* Leggera ombra */
 }
 
+/* Input della ricerca */
 #search-box {
     width: 100%;
     padding: 12px 15px;
@@ -58,23 +60,24 @@ body {
     box-shadow: 0 0 8px rgba(28, 117, 188, 0.3);
 }
 
-/* Content list inside sidebar */
+/* Lista delle province e dei comuni nella sidebar */
 #location-list {
     list-style: none;
     margin: 0;
     padding: 10px 15px;
 }
 
-/* Province Block */
+/* Blocco che contiene una provincia e i suoi comuni */
 .province-block {
     margin-bottom: 22px;
     padding: 12px 12px 0;
-    border-left: 6px solid #1C75BC;
+    border-left: 6px solid #1C75BC; /* Colore dinamico via JS */
     background: #fff;
     border-radius: 5px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
+/* Intestazione cliccabile della provincia (espande/chiude la lista) */
 .province-header {
     display: block;
     font-size: 1.6em;
@@ -92,13 +95,14 @@ body {
     text-decoration: underline;
 }
 
-/* Places List */
+/* Lista dei comuni di una provincia */
 .places-list {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
+/* Singolo comune nella lista */
 .place-item {
     margin-bottom: 16px;
     border-radius: 5px;
@@ -111,6 +115,7 @@ body {
     background: #f0f8ff;
 }
 
+/* Link del nome del comune */
 .place-item a {
     text-decoration: none;
     display: block;
@@ -127,11 +132,12 @@ body {
     color: #1463A5;
 }
 
-/* Info Box */
+/* Box informativo sotto il nome del comune */
 .place-item div {
     padding: 0 8px 8px;
 }
 
+/* Box con info dettagliate del comune */
 .info-box {
     margin-top: 12px;
     font-size: 1.1em;
@@ -143,16 +149,19 @@ body {
     transition: all 0.3s ease-in-out;
 }
 
+/* Nasconde il box info se non attivo */
 .info-hidden {
     display: none;
 }
 
+/* Nome italiano in corsivo e grigio */
 .info-box .info-italian {
     font-size: 1.05em;
     color: #666;
     font-style: italic;
 }
 
+/* Riga info: posizione, demonomico, note */
 .info-box .info-location,
 .info-box .info-demonym,
 .info-box .info-noti {
@@ -165,11 +174,11 @@ body {
     padding: 8px 10px;
 }
 
-/* Calibration Panel */
+/* === Pannello di calibrazione in basso a sinistra === */
 #calibration-panel {
     position: fixed;
     bottom: 20px;
-    left: 20px; /* Keep on the left, it's independent */
+    left: 20px; /* Sempre a sinistra */
     background: linear-gradient(135deg, #1C75BC, #0F5A94);
     border-radius: 12px;
     padding: 0;
