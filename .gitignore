@@ -1,2 +1,4 @@
 .DS_Store
-venv_atlanti/
+
+venv-atlanti/
+requirements.txt
